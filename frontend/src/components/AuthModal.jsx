@@ -141,13 +141,14 @@ export default function AuthModal({ onClose }) {
 
     setLoading(true);
     try {
-      await apiFetch("/auth/donor/send-otp", {
+      const otpData = await apiFetch("/auth/donor/send-otp", {
         method: "POST",
         body: JSON.stringify(donorForm),
       });
+      console.log("🔐 Registration OTP:", otpData.otp);
       setOtpMobile(mobile);
       setOtpDigits(["", "", "", "", "", ""]);
-      setOtpTimer(300); // 5 minutes
+      setOtpTimer(300);
       setTab("otp");
     } catch (e) {
       err(e.message);
@@ -204,14 +205,12 @@ export default function AuthModal({ onClose }) {
 
     setLoading(true);
     try {
-      // ✅ Uses apiFetch (respects the Vite proxy) instead of hardcoded localhost
       const data = await apiFetch("/auth/forgot-password", {
         method: "POST",
         body: JSON.stringify({ aadhaarNumber: aadhaarInput }),
       });
-      // Show the success message (e.g. "OTP sent to ...1234") inside the modal
+      console.log("🔐 Forgot Password OTP:", data.otp);
       err(`✅ ${data.message}`);
-      // Move to the OTP + new password screen
       setView("reset");
     } catch (e) {
       err(e.message);
@@ -304,10 +303,11 @@ export default function AuthModal({ onClose }) {
     clearErr();
     setLoading(true);
     try {
-      await apiFetch("/auth/donor/send-otp", {
+      const otpData = await apiFetch("/auth/donor/send-otp", {
         method: "POST",
         body: JSON.stringify(donorForm),
       });
+      console.log("🔐 Resend OTP:", otpData.otp);
       setOtpTimer(300);
       setOtpDigits(["", "", "", "", "", ""]);
     } catch (e) {
