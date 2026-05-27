@@ -12,56 +12,36 @@ const adminRoutes        = require("./routes/adminRoutes");
 connectDB();
 
 const app = express();
-
-// ── CORS ──────────────────────────────────────────────────────────────────────
-// Allow requests from the Vite dev server and any localhost port.
-// In production replace the origins array with your actual domain.
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (mobile apps, curl, Postman, server-to-server)
     if (!origin) return callback(null, true);
-
     const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
   "https://blood-bonds.vercel.app",  
 ];
-
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
 
-    // Block everything else
     return callback(new Error("CORS: Origin not allowed — " + origin));
   },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
-
-// Handle preflight OPTIONS requests for every route
-// Express 5 dropped bare "*" wildcard — must use a regex
 app.options(/(.*)/,  cors());
-
-// ── BODY PARSER ───────────────────────────────────────────────────────────────
-// Raised to 10mb to support base64-encoded profile image uploads.
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
-
-// ── ROUTES ───────────────────────────────────────────────────────────────────
 app.use("/api/auth",         authRoutes);
 app.use("/api/donor",        donorRoutes);
 app.use("/api/organization", organizationRoutes);
 app.use("/api/admin",        adminRoutes);
 
 app.get("/", (req, res) => res.send("Blood Bonds API Running ❤"));
-
-// ── 404 ───────────────────────────────────────────────────────────────────────
 app.use((req, res) => {
   res.status(404).json({ message: `Route ${req.method} ${req.url} not found` });
 });
-
-// ── GLOBAL ERROR HANDLER ──────────────────────────────────────────────────────
 app.use((err, req, res, next) => {
   console.error("Server error:", err.message);
   res.status(err.status || 500).json({
