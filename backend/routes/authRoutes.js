@@ -144,10 +144,8 @@ router.post(
       { upsert: true, new: true },
     );
 
-    // Send OTP to user's email — throws if it fails (asyncHandler catches it)
-    await sendOtpEmail(email, otp);
-
-    res.json({ message: "OTP sent to your registered email address." });
+     await sendOtpEmail(email, otp);
+    res.json({ message: "OTP generated. Please check the backend console." });
   }),
 );
 
