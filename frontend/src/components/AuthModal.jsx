@@ -390,7 +390,7 @@ export default function AuthModal({ onClose }) {
               <form onSubmit={handleForgotPassword} className="form-container active-tab">
                 <h3 id="modalTitle">🔑 Forgot Password</h3>
                 <p style={{ marginBottom: "1rem", color: "#64748b", textAlign: "center", fontSize: "0.95rem" }}>
-                  Enter your Aadhaar number and we'll send an OTP to your registered mobile.
+                  Enter your Aadhaar number and we'll send an OTP!
                 </p>
 
                 <input
