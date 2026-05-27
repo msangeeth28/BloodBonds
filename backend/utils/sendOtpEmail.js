@@ -1,3 +1,4 @@
+/*
 const nodemailer = require("nodemailer");
 
 // Create the transporter using Gmail + App Password from .env
@@ -35,6 +36,20 @@ const sendOtpEmail = async (toEmail, otp) => {
       </div>
     `,
   });
+};
+
+module.exports = sendOtpEmail;
+*/
+
+const sendOtpEmail = async (toEmail, otp) => {
+  // Print OTP clearly in the backend console (visible in Render logs)
+  console.log("─────────────────────────────────────");
+  console.log("🔐 BloodBonds OTP");
+  console.log(`   To    : ${toEmail}`);
+  console.log(`   OTP   : ${otp}`);
+  console.log(`   Valid : 10 minutes`);
+  console.log("─────────────────────────────────────");
+  // No email is sent. Function returns immediately.
 };
 
 module.exports = sendOtpEmail;
