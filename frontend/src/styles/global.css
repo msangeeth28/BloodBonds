@@ -1,0 +1,735 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #1e293b;
+  font-family: "Inter", sans-serif;
+}
+
+/* SECTIONS */
+.how-section, .blood-centers-section, .donor-section {
+  padding: 120px 80px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.how-section small, .blood-centers-section small, .donor-section small {
+  color: #ef4444;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.how-section h2, .blood-centers-section h2, .donor-section h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  margin: 20px 0;
+  color: #1e293b;
+}
+
+.how-section h2 span, .donor-section h2 span {
+  color: #ef4444;
+}
+
+.how-section > p, .blood-centers-section p, .donor-section p {
+  color: #64748b;
+  max-width: 700px;
+  margin: 0 auto 70px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* GRID & CARDS */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  background: white;
+  padding: 45px 35px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(239, 68, 68, 0.15);
+  border-color: #fecaca;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: #ef4444;
+  transition: 0.4s ease;
+}
+
+.card:hover::before {
+  width: 100%;
+}
+
+.card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #1e293b;
+}
+
+.card p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* SLIDERS */
+.slider-wrapper, .center-slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* AFTER */
+.donor-slider, .center-slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;               /* allows scrolling */
+  width: 900px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge */
+}
+
+.donor-slider::-webkit-scrollbar,
+.center-slider::-webkit-scrollbar {
+  display: none;                  /* Chrome/Safari */
+}
+
+.donor-card {
+  background: white;
+  padding: 40px;
+  min-width: 260px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(239, 68, 68, 0.15);
+}
+
+.donor-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px 0;
+}
+
+.center-card {
+  min-width: 280px;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.center-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+.center-card .distance {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.center-card p {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.rank {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin: 10px 0;
+}
+
+.gold { background: #fbbf24; }
+.silver { background: #94a3b8; }
+.bronze { background: #b45309; }
+
+.donations {
+  margin-top: 15px;
+  background: #fee2e2;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.nav-arrow, .center-arrow {
+  background: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover, .center-arrow:hover {
+  background: #f1f5f9;
+  transform: scale(1.1);
+}
+
+.dots, .center-dots {
+  margin-top: 40px;
+}
+
+.dots span, .center-dots span {
+  height: 10px;
+  width: 10px;
+  background: #cbd5e1;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dots .active, .center-dots .active {
+  background: #ef4444;
+}
+
+/* FOOTER */
+.footer {
+  background: #1e3a5f;
+  color: #cbd5e1;
+  padding: 80px 80px 30px;
+  margin-top: 100px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.footer-logo span { margin-left: 5px; }
+
+.footer-col h4 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.footer-col p, .footer-col ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #cbd5e1;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover { color: white; }
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 50px;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+@media (max-width: 1200px) {
+  .donor-slider, .center-slider { width: 100%; }
+}
+@media (max-width: 900px) {
+  .how-section, .blood-centers-section, .donor-section, .footer { padding: 80px 30px; }
+  .how-section h2, .blood-centers-section h2, .donor-section h2 { font-size: 36px; }
+  .donor-card, .center-card { min-width: 280px; }
+  .footer-container { flex-direction: column; gap: 40px; }
+}
+@media (max-width: 600px) {
+  .donor-section h2, .blood-centers-section h2 { font-size: 32px; }
+  .donor-card { padding: 30px 25px; }
+  .donor-card img { width: 80px; height: 80px; }
+}
+
+
+/* BASE RANK BADGE */
+.rank-badge {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* 🥇 GOLD */
+.rank-badge.gold {
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transform: scale(1.1);
+}
+
+/* 🥈 SILVER */
+.rank-badge.silver {
+  background: linear-gradient(135deg, #c0c0c0, #9e9e9e);
+  box-shadow: 0 0 12px rgba(192, 192, 192, 0.5);
+}
+
+/* 🥉 BRONZE */
+.rank-badge.bronze {
+  background: linear-gradient(135deg, #cd7f32, #a05a2c);
+  box-shadow: 0 0 10px rgba(205, 127, 50, 0.5);
+}
+
+/* NORMAL RANK */
+.rank-badge {
+  background: #64748b;
+}
+/* ── HOW IT WORKS IMPROVEMENTS ─────────────────────────────────── */
+.how-card {
+  position: relative;
+  padding: 2.5rem 2rem;
+}
+
+.how-step-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  line-height: 1;
+}
+
+.how-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.how-cta-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.55rem 1.25rem;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.how-cta-btn:hover { background: #dc2626; }
+
+/* ── TOP DONORS IMPROVEMENTS ─────────────────────────────────── */
+.donor-blood-pill {
+  display: inline-block;
+  background: #fee2e2;
+  color: #ef4444;
+  font-weight: 800;
+  font-size: 0.88rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 20px;
+  margin: 0.4rem 0;
+}
+
+.donor-badge-chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  margin: 0.3rem 0;
+  letter-spacing: 0.3px;
+}
+
+.donor-card-avatar-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 3px solid #fee2e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donor-card-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 50%;
+}
+
+.donors-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #94a3b8;
+}
+
+.donors-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #fecaca;
+  border-top-color: #ef4444;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.donors-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.donors-empty h3 { font-family: 'Poppins', sans-serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.donors-empty p { color: #64748b; }
+
+.top-donors-cta {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.top-donors-cta span {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* ── FOOTER REDESIGN ──────────────────────────────────────── */
+.footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  gap: 3rem;
+  padding: 4rem 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-brand .footer-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footer-brand .footer-logo span { color: #ef4444; }
+
+.footer-tagline {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  max-width: 260px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-social-icon {
+  width: 36px;
+  height: 36px;
+  background: #1e293b;
+  color: #94a3b8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.footer-social-icon:hover {
+  background: #ef4444;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.footer-col h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #e2e8f0;
+  margin-bottom: 1.25rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-col ul li a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: #ef4444;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.footer-contact-icon {
+  font-size: 1.1rem;
+  margin-top: 0.05rem;
+  flex-shrink: 0;
+}
+
+.footer-contact-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #475569;
+  margin-bottom: 0.2rem;
+}
+
+.footer-contact-item a,
+.footer-contact-item span {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.footer-contact-item a:hover { color: #ef4444; }
+
+.footer-emergency-box {
+  margin-top: 1.5rem;
+  background: #1e293b;
+  border: 1px solid #ef444440;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.footer-emergency-title {
+  font-weight: 700;
+  color: #fca5a5;
+  font-size: 0.88rem;
+  margin-bottom: 0.3rem;
+}
+
+.footer-emergency-box p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.footer-emergency-btn {
+  display: inline-block;
+  background: #ef4444;
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.footer-emergency-btn:hover { background: #dc2626; }
+
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  padding: 1.25rem 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.83rem;
+  color: #475569;
+}
+
+/* ── STYLED SELECT DROPDOWNS ──────────────────────────────── */
+.styled-select,
+select,
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #f8fafc;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.6rem 2.5rem 0.6rem 0.9rem;
+  font-size: 0.93rem;
+  color: #1e293b;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.styled-select:focus,
+select:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px #ef444415;
+  background-color: #fff;
+}
+
+.styled-select:hover,
+.form-group select:hover {
+  border-color: #cbd5e1;
+}
+
+/* ── CARD REMOVAL ANIMATION ───────────────────────────────── */
+@keyframes cardFadeOut {
+  0%   { opacity: 1; transform: scale(1); }
+  60%  { opacity: 0.4; transform: scale(0.97); }
+  100% { opacity: 0; transform: scale(0.92) translateY(-8px); }
+}
+
+.card-removing {
+  animation: cardFadeOut 0.42s ease forwards;
+  pointer-events: none;
+}
+
+/* responsive footer */
+@media (max-width: 1024px) {
+  .footer-container { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .footer-container { grid-template-columns: 1fr; padding: 2.5rem 1.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; padding: 1rem 1.5rem; text-align: center; }
+}
+
+
+
+/* ══════════════════════════════════════════════════════════
+   HEARTBEAT DYNAMIC VISUALS
+══════════════════════════════════════════════════════════ */
+
+.animate-heartbeat-line {
+    animation: heartbeat-line 3s linear infinite;
+}
+
+@keyframes heartbeat-line {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}

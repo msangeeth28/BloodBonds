@@ -1,0 +1,166 @@
+/* Styles moved to dashboard.css */
+/* frontend/src/styles/donor-page.css */
+
+/* ══════════════════════════════════════════════════════════
+   DONOR TOP NAVIGATION REDESIGN
+══════════════════════════════════════════════════════════ */
+.donor-db-root {
+  font-family: 'Inter', sans-serif;
+  background: #f1f5f9;
+  min-height: 100vh;
+  color: #1e293b;
+}
+
+.donor-top-nav-wrapper {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+
+.donor-top-nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.donor-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ef4444;
+  white-space: nowrap;
+}
+
+.donor-nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.donor-nav-btn {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.donor-nav-btn:hover {
+  background: #fff;
+  border-color: #ef4444;
+  color: #ef4444;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+}
+
+.donor-nav-btn.active {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.donor-nav-icon {
+  font-size: 1.1rem;
+}
+
+.donor-nav-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.donor-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.donor-welcome {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.donor-welcome strong {
+  color: #1e293b;
+}
+
+.donor-logout-btn {
+  background: #fff;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.donor-logout-btn:hover {
+  background: #fef2f2;
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+.donor-main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Logout Modal */
+.donor-logout-overlay {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55);
+  display: flex; align-items: center; justify-content: center; z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+.donor-logout-modal {
+  background: #fff; border-radius: 20px; padding: 2.5rem 2rem; max-width: 380px; width: 90%;
+  text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+}
+.donor-logout-modal h3 { margin-bottom: 0.6rem; color: #1e293b; font-size: 1.35rem; }
+.donor-logout-modal p { color: #64748b; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.5; }
+.donor-logout-actions { display: flex; gap: 1rem; justify-content: center; }
+.donor-logout-actions button {
+  flex: 1; padding: 0.8rem; border-radius: 10px; font-weight: 600; cursor: pointer; border: none;
+}
+.donor-btn-cancel { background: #f1f5f9; color: #475569; }
+.donor-btn-confirm { background: #ef4444; color: #fff; }
+
+@media (max-width: 900px) {
+  .donor-top-nav-inner { justify-content: center; flex-direction: column; }
+  .donor-nav-tabs { width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .donor-nav-btn { flex: calc(50% - 0.5rem); min-width: unset; padding: 0.5rem; font-size: 0.8rem; }
+  .donor-nav-user { width: 100%; justify-content: space-between; }
+}
