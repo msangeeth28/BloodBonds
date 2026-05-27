@@ -18,7 +18,8 @@ const app = express();
 // In production replace the origins array with your actual domain.
 app.use(cors({
   origin: [
-    `${process.env.PORT}`
+    "http://localhost:5173",
+    "https://blood-bonds.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
