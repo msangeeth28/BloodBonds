@@ -22,10 +22,10 @@ app.use(cors({
     if (!origin) return callback(null, true);
 
     const allowedOrigins = [
-      "http://localhost:5173",           // Vite dev server (local development)
-      "http://localhost:3000",           // In case you test on port 3000 locally
-      "https://bloodbonds.vercel.app",   // ← YOUR Vercel frontend URL (production)
-    ];
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://blood-bonds.vercel.app",  
+];
 
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
