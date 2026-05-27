@@ -485,7 +485,7 @@ export default function OrgPage() {
                   <div className="form-group">
                     <label>Patient Name</label>
                     <input
-                      placeholder="e.g. Rahul Sharma"
+                      placeholder=" "
                       value={emergencyForm.patientName}
                       onChange={(e) =>
                         setEmergencyForm({
@@ -536,7 +536,7 @@ export default function OrgPage() {
                     <input
                       type="number"
                       min="1"
-                      placeholder="e.g. 2"
+                      placeholder=""
                       value={emergencyForm.units}
                       onChange={(e) =>
                         setEmergencyForm({
