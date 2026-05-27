@@ -1,5 +1,5 @@
 const express = require("express");
-const bcrypt = require("bcryptjs"); // ✅ Imported ONCE at the top (clean practice)
+const bcrypt = require("bcryptjs"); 
 const jwt = require("jsonwebtoken");
 const sendOtpEmail = require("../utils/sendOtpEmail");
 
@@ -143,9 +143,8 @@ router.post(
       },
       { upsert: true, new: true },
     );
-
-     await sendOtpEmail(email, otp);
-    res.json({ message: "OTP generated. Please check the backend console." });
+ await sendOtpEmail(email, otp);
+    res.json({ message: "OTP generated successfully.", otp });
   }),
 );
 
@@ -370,7 +369,8 @@ router.post(
     await sendOtpEmail(user.email, otp);
 
     res.json({
-      message: `OTP sent to your registered email address. It is valid for 10 minutes.`,
+       message: "OTP generated successfully. It is valid for 5 minutes.",
+      otp,
     });
   }),
 );
