@@ -17,10 +17,23 @@ const app = express();
 // Allow requests from the Vite dev server and any localhost port.
 // In production replace the origins array with your actual domain.
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://blood-bonds.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, Postman, server-to-server)
+    if (!origin) return callback(null, true);
+
+    const allowedOrigins = [
+      "http://localhost:5173",           // Vite dev server (local development)
+      "http://localhost:3000",           // In case you test on port 3000 locally
+      "https://bloodbonds.vercel.app",   // ← YOUR Vercel frontend URL (production)
+    ];
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    // Block everything else
+    return callback(new Error("CORS: Origin not allowed — " + origin));
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
