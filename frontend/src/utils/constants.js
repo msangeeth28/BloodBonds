@@ -5,6 +5,9 @@ export const LOCATIONS = {
   Delhi:     ["Connaught Place", "Dwarka", "Rohini", "Saket", "Lajpat Nagar", "Pitampura"],
   Chennai:   ["T. Nagar", "Anna Nagar", "Velachery", "Adyar", "Tambaram", "Porur"],
   Pune:      ["Hinjewadi", "Kothrud", "Wakad", "Baner", "Viman Nagar", "Hadapsar"],
+  Vizag:     ["MVP Colony", "Madhurawada", "Gajuwaka", "Dwaraka Nagar", "Seethammadhara", "Rushikonda", "Gopalapatnam"],
+  Vijayawada: ["Benz Circle", "Governorpet", "Patamata", "Kanuru", "Poranki", "Gannavaram", "Bhavanipuram"],
+  
 };
 
 export const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
@@ -22,4 +25,7 @@ export const BLOOD_COMPATIBILITY = {
 
 // With Vite proxy configured, we use a relative path so all /api requests
 // go through the dev server → backend. Works in both dev and production builds.
-export const API_BASE = "/api";
+export const API_BASE =
+  import.meta.env.MODE === "development"
+    ? "/api"
+    : "https://bloodbonds.onrender.com/api";
