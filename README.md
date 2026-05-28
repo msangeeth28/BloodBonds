@@ -55,23 +55,6 @@ Backend API: https://bloodbonds.onrender.com/
 - Manages donors, organizations, and platform activity
 - Monitors emergency requests system-wide
 
----
-
-## 🔁 System Architecture
-
-Frontend (React + Vite)
-↓
-API Requests (Axios / Fetch)
-↓
-Backend Server (Node.js + Express)
-↓
-JWT Authentication Middleware
-↓
-MongoDB Atlas Database
-↓
-Response sent back to frontend
-↓
-UI updates dynamically
 
 ---
 
@@ -120,7 +103,6 @@ BloodBonds/
 │   └── ...
 │
 ├── README.md
-└── package.json
 ```
 
 ---
